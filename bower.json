@@ -1,0 +1,32 @@
+{
+  "name": "enyof",
+  "version": "0.0.0",
+  "description": "Shallow equal on any of the given parameter.",
+  "main": "enyof.deploy.js",
+  "support": "enyof.support.js",
+  "authors": [
+    "Richeve S. Bebedor <richeve.bebedor@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "shallow",
+    "equal",
+    "any",
+    "given",
+    "parameter"
+  ],
+  "homepage": "https://github.com/volkovasystems/enyof",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "arkount": "^0.5.0",
+    "budge": "^0.21.0",
+    "plough": "^0.22.0",
+    "eqe": "^0.0.0"
+  }
+}
