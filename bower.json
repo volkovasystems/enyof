@@ -1,11 +1,12 @@
 {
   "name": "enyof",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Shallow equal on any of the given parameter.",
   "main": "enyof.deploy.js",
   "support": "enyof.support.js",
   "authors": [
-    "Richeve S. Bebedor <richeve.bebedor@gmail.com>"
+    "Richeve S. Bebedor <richeve.bebedor@gmail.com>",
+    "John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>"
   ],
   "license": "MIT",
   "keywords": [
@@ -24,9 +25,9 @@
     "tests"
   ],
   "dependencies": {
-    "arkount": "^0.5.0",
-    "budge": "^0.21.0",
-    "plough": "^0.22.0",
-    "eqe": "^0.0.0"
+    "arkount": "^0.6.0",
+    "budge": "^0.22.0",
+    "plough": "^0.23.0",
+    "eqe": "^0.1.0"
   }
 }
