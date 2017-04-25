@@ -34,6 +34,9 @@
 			"file": "enyof.js",
 			"module": "enyof",
 			"author": "Richeve S. Bebedor",
+			"contributors": [
+				"John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>"
+			],
 			"eMail": "richeve.bebedor@gmail.com",
 			"repository": "https://github.com/volkovasystems/enyof.git",
 			"test": "enyof-test.js",
