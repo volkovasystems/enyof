@@ -1,6 +1,6 @@
 {
   "name": "enyof",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Shallow equal on any of the given parameter.",
   "main": "enyof.js",
   "support": "enyof.support.js",
@@ -31,9 +31,8 @@
   },
   "homepage": "https://github.com/volkovasystems/enyof#readme",
   "dependencies": {
-    "arkount": "^0.7.0",
     "babel-runtime": "^6.23.0",
-    "budge": "^0.25.0",
+    "budge": "^0.26.0",
     "eqe": "^0.2.0",
     "plough": "^0.24.0"
   },
@@ -43,6 +42,6 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-latest": "^6.24.1",
     "source-map-loader": "^0.2.1",
-    "webpack": "^2.4.1"
+    "webpack": "^2.5.0"
   }
 }

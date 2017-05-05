@@ -50,7 +50,6 @@
               
               	@include:
               		{
-              			"arkount": "arkount",
               			"budge": "budge",
               			"plough": "plough",
               			"eqe": "eqe"
@@ -58,7 +57,6 @@
               	@end-include
               */
 
-var arkount = require("arkount");
 var budge = require("budge");
 var plough = require("plough");
 var eqe = require("eqe");
@@ -76,7 +74,7 @@ var enyof = function enyof(entity, parameter) {
                                                	@end-meta-configuration
                                                */
 
-	if (arkount(arguments) < 2) {
+	if (arguments.length < 2) {
 		throw new Error("invalid parameter");
 	}
 

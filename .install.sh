@@ -1,6 +1,5 @@
 yarn add \
 babel-runtime \
-arkount \
 budge \
 plough \
 eqe \
@@ -14,7 +13,6 @@ source-map-loader \
 webpack \
 --dev && \
 bower install \
-arkount \
 budge \
 plough \
 eqe \
