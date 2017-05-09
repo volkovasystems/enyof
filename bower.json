@@ -1,6 +1,6 @@
 {
   "name": "enyof",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Shallow equal on any of the given parameter.",
   "main": "enyof.deploy.js",
   "support": "enyof.support.js",
@@ -25,8 +25,8 @@
     "tests"
   ],
   "dependencies": {
-    "budge": "^0.26.0",
-    "plough": "^0.24.0",
+    "budge": "^0.28.0",
+    "plough": "^0.25.0",
     "eqe": "^0.2.0"
   }
 }
