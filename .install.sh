@@ -1,8 +1,8 @@
 yarn add \
 babel-runtime \
-budge \
-plough \
 eqe \
+plough \
+shft \
 --save && \
 yarn add \
 babel-cli \
@@ -13,8 +13,8 @@ source-map-loader \
 webpack \
 --dev && \
 bower install \
-budge \
-plough \
 eqe \
+plough \
+shft \
 --save \
 --force-latest

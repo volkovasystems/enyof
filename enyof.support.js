@@ -50,16 +50,16 @@
               
               	@include:
               		{
-              			"budge": "budge",
+              			"eqe": "eqe",
               			"plough": "plough",
-              			"eqe": "eqe"
+              			"shft": "shft"
               		}
               	@end-include
               */
 
-var budge = require("budge");
-var plough = require("plough");
 var eqe = require("eqe");
+var plough = require("plough");
+var shft = require("shft");
 
 var enyof = function enyof(entity, parameter) {
 	/*;
@@ -79,7 +79,7 @@ var enyof = function enyof(entity, parameter) {
 	}
 
 	try {
-		return plough(budge(arguments)).some(function (parameter) {return eqe(entity, parameter);});
+		return plough(shft(arguments)).some(function (parameter) {return eqe(entity, parameter);});
 
 	} catch (error) {
 		return false;
