@@ -1,6 +1,6 @@
 {
   "name": "enyof",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Shallow equal on any of the given parameter.",
   "main": "enyof.js",
   "support": "enyof.support.js",
@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
-    "babel-core": "^6.24.1",
+    "babel-core": "^6.25.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-latest": "^6.24.1",
     "source-map-loader": "^0.2.1",
