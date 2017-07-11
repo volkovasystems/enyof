@@ -1,6 +1,6 @@
 {
   "name": "enyof",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "Shallow equal on any of the given parameter.",
   "main": "enyof.js",
   "support": "enyof.support.js",
@@ -23,7 +23,8 @@
   ],
   "author": "Richeve S. Bebedor <richeve.bebedor@gmail.com>",
   "contributors": [
-    "John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>"
+    "John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>",
+    "Vinse Vinalon <vinsevinalon@gmail.com>"
   ],
   "license": "MIT",
   "bugs": {
@@ -32,9 +33,9 @@
   "homepage": "https://github.com/volkovasystems/enyof#readme",
   "dependencies": {
     "babel-runtime": "^6.23.0",
-    "eqe": "^0.3.0",
-    "plough": "^0.26.0",
-    "shft": "^0.2.0"
+    "eqe": "^0.4.0",
+    "plough": "^0.28.0",
+    "shft": "^0.4.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -42,6 +43,6 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-latest": "^6.24.1",
     "source-map-loader": "^0.2.1",
-    "webpack": "^2.6.1"
+    "webpack": "^3.1.0"
   }
 }
