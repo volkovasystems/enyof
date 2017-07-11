@@ -8,18 +8,13 @@ assert.equal( enyof( "success", "failed", "success", "ok" ), true, "should retur
 
 assert.equal( !enyof( "success", "failed", "bug" ), true, "should return true" );
 
+assert.equal( enyof( ( ) => { }, false, ( ) => { } ), true, "should be true" );
+
 assert.equal( enyof( function( ){ }, "test", true, function( ){ } ), true, "should be true" );
 
 assert.equal( enyof( Array, 123, true, Array ), true, "should return true" );
 
-assert.equal( enyof( Object, true, 123, Object ), true, "should return true" );
-
-assert.equal( enyof( Date, "hello", true, Date ), true, "should return true" );
-
-assert.equal( enyof( RegExp, "hello", true, RegExp ), true, "should return true" );
-
 assert.equal( enyof( "test", false, 123, "test", { } ), true, "should be true" );
-
 
 assert.equal( enyof( 0, true, "0" ), false, "should return false" );
 
@@ -34,6 +29,8 @@ assert.equal( enyof( 123, "123" ), false, "should return false" );
 assert.equal( enyof( 123, 456 ), false, "should be false" );
 
 assert.equal( enyof( { }, { } ), false, "should return false" );
+
+assert.equal( enyof( [ ], true, [ ] ), false, "should be false" );
 
 assert.equal( enyof( Array, "Array" ), false, "should return false" );
 

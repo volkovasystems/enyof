@@ -1,63 +1,64 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<title>enyof unit test</title>
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>Enyof QUnit Example</title>
-	<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.3.2.css">
-	<script src="https://code.jquery.com/qunit/qunit-2.3.2.js"></script>
-	<script type="application/javascript" src="./enyof.deploy.js"></script>
-</head>
+		<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.3.2.css">
 
-<body>
-	<div id="qunit"></div>
-	<div id="qunit-fixture"></div>
-	<script>
-		QUnit.test("equal test", function (assert) {
+		<script type="application/javascript" src="https://code.jquery.com/qunit/qunit-2.3.2.js"></script>
 
-			assert.equal(enyof(0, 1, 2, 3, 0), true, "should return true");
+		<script type="application/javascript" src="./enyof.deploy.js"></script>
+	</head>
 
-			assert.equal(enyof(function () { }, "test", true, function () { }), true, "should be true");
+	<body>
+		<div id="qunit"></div>
 
-			assert.equal(enyof(Array, 123, true, Array), true, "should return true");
+		<div id="qunit-fixture"></div>
 
-			assert.equal(enyof(Object, true, 123, Object), true, "should return true");
+		<script type="application/javascript">
+			QUnit.test( "enyof unit test", function( assert ) {
 
-			assert.equal(enyof(Date, "hello", true, Date), true, "should return true");
+				assert.equal( enyof( 0, 1, 2, 3, 0 ), true, "should return true" );
 
-			assert.equal(enyof(RegExp, "hello", true, RegExp), true, "should return true");
+				assert.equal( enyof( "success", "failed", "success", "ok" ), true, "should return true" );
 
-			assert.equal(enyof("test", false, 123, "test", {}), true, "should be true");
+				assert.equal( !enyof( "success", "failed", "bug" ), true, "should return true" );
 
+				assert.equal( enyof( ( ) => { }, false, ( ) => { } ), true, "should be true" );
 
-			assert.equal(enyof(0, true, "0"), false, "should return false");
+				assert.equal( enyof( function( ){ }, "test", true, function( ){ } ), true, "should be true" );
 
-			assert.equal(enyof(0, ""), false, "should return false");
+				assert.equal( enyof( Array, 123, true, Array ), true, "should return true" );
 
-			assert.equal(enyof(null, 0, undefined), false, "should return false");
+				assert.equal( enyof( "test", false, 123, "test", { } ), true, "should be true" );
 
-			assert.equal(enyof("test", false, 123, "", {}), false, "should return false");
+				assert.equal( enyof( 0, true, "0" ), false, "should return false" );
 
-			assert.equal(enyof(123, "123"), false, "should return false");
+				assert.equal( enyof( 0, "" ), false, "should return false" );
 
-			assert.equal(enyof(123, 456), false, "should be false");
+				assert.equal( enyof( null, 0, undefined ), false, "should return false" );
 
-			assert.equal(enyof({}, {}), false, "should return false");
+				assert.equal( enyof( "test", false, 123, "", { } ), false, "should return false" );
 
-			assert.equal(enyof(Array, "Array"), false, "should return false");
+				assert.equal( enyof( 123, "123" ), false, "should return false" );
 
-			assert.equal(enyof(Array, Object), false, "should return false");
+				assert.equal( enyof( 123, 456 ), false, "should be false" );
 
-			assert.equal(enyof(new Date(), Date), false, "should return false");
+				assert.equal( enyof( { }, { } ), false, "should return false" );
 
-			assert.equal(enyof(function hello() { return "hello" },
-				function hello() { return "hi" }),
-				false, "should return false");
+				assert.equal( enyof( [ ], true, [ ] ), false, "should be false" );
 
+				assert.equal( enyof( Array, "Array" ), false, "should return false" );
 
-		});
-	</script>
-</body>
+				assert.equal( enyof( Array, Object ), false, "should return false" );
 
+				assert.equal( enyof( new Date( ), Date ), false, "should return false" );
+
+				assert.equal( enyof( function hello( ){ return "hello" },
+								function hello( ){ return "hi" } ),
+								false, "should return false" );
+								
+			} );
+		</script>
+	</body>
 </html>
