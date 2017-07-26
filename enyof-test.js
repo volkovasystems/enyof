@@ -5,8 +5,10 @@ const enyof = require( "./enyof.js" );
 assert.equal( enyof( 0, 1, 2, 3, 0 ), true, "should return true" );
 
 assert.equal( !enyof( "success", "failed", "bug" ), true, "should return true" );
+
 /* The result of the following test has changed
 
+console.log( enyof( Array, 123, true, Array ) ); // result: false
 assert.equal( enyof( ( ) => { }, false, ( ) => { } ), true, "should return true" );
 
 let test = function( ){ };
