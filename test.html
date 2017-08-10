@@ -1,56 +1,28 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>enyof unit test</title>
+		<meta charset="utf-8">
 
-		<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.3.2.css">
+		<title>test:enyof</title>
 
-		<script type="application/javascript" src="https://code.jquery.com/qunit/qunit-2.3.2.js"></script>
+		<link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css"/>
 
 		<script type="application/javascript" src="./enyof.deploy.js"></script>
 	</head>
 
 	<body>
-		<div id="qunit"></div>
+		<div id="mocha"></div>
 
-		<div id="qunit-fixture"></div>
+		<script type="application/javascript" src="https://unpkg.com/mocha/mocha.js"></script>
 
 		<script type="application/javascript">
-			QUnit.test( "enyof unit test", function( assert ) {
+			mocha.setup( "bdd" );
+		</script>
 
-				assert.equal( enyof( 0, 1, 2, 3, 0 ), true, "should be equal to true" );
+		<script type="application/javascript" src="./test.deploy.js"></script>
 
-				assert.equal( !enyof( "success", "failed", "bug" ), true, "should be equal to true" );
-
-				assert.equal( enyof( ( ) => { }, false, ( ) => { } ), true, "should be equal to true" );
-
-				assert.equal( enyof( function( ){ }, "test", true, function( ){ } ), true, "should be equal to true" );
-
-				assert.equal( enyof( Array, 123, true, Array ), true, "should be equal to true" );
-
-				assert.equal( enyof( "test", false, 123, "test", { } ), true, "should be equal to true" );
-
-				assert.equal( enyof( null, 0, undefined ), false, "should be equal to false" );
-
-				assert.equal( enyof( "test", false, 123, "", { } ), false, "should be equal to false" );
-
-				assert.equal( enyof( 123, "123" ), false, "should be equal to false" );
-
-				assert.equal( enyof( 123, 456 ), false, "should be equal to false" );
-
-				assert.equal( enyof( { }, { } ), false, "should be equal to false" );
-
-				assert.equal( enyof( [ ], true, [ ] ), false, "should be equal to false" );
-
-				assert.equal( enyof( Array, "Array" ), false, "should be equal to false" );
-
-				assert.equal( enyof( Array, Object ), false, "should be equal to false" );
-
-				assert.equal( enyof( function hello( ){ return "hello" },
-								function hello( ){ return "hi" } ),
-								false, "should be equal to false" );
-
-			} );
+		<script type="application/javascript">
+			mocha.run( );
 		</script>
 	</body>
 </html>
