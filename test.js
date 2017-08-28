@@ -66,6 +66,94 @@ const enyof = require( "./enyof.js" );
 
 describe( "enyof", ( ) => {
 
+	describe( "`enyof( 0, 1, 2, 3, 0 )`", ( ) => {
+		it( "should be equal to true", ( ) => {
+
+			assert.equal( enyof( 0, 1, 2, 3, 0 ), true );
+
+		} );
+	} );
+
+	describe( "`!enyof( 'success', 'failed', 'bug' )`", ( ) => {
+		it( "should be equal to true", ( ) => {
+
+			assert.equal( !enyof( "success", "failed", "bug" ), true );
+
+		} );
+	} );
+
+	describe( "`enyof( 'test', false, 123, 'test', { } )`", ( ) => {
+		it( "should be equal to true", ( ) => {
+
+			assert.equal( enyof( "test", false, 123, "test", { } ), true );
+
+		} );
+	} );
+
+	describe( "`enyof( null, 0, undefined )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			assert.equal( enyof( null, 0, undefined ), false );
+
+		} );
+	} );
+
+	describe( "`enyof( 'test', false, 123, '', { } )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			assert.equal( enyof( "test", false, 123, "", { } ), false );
+
+		} );
+	} );
+
+	describe( "`enyof( 123, '123' )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			assert.equal( enyof( 123, "123" ), false );
+
+		} );
+	} );
+
+	describe( "`enyof( 123, 456 )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			assert.equal( enyof( 123, 456 ), false );
+
+		} );
+	} );
+
+	describe( "`enyof( { }, { } )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			assert.equal( enyof( { }, { } ), false );
+
+		} );
+	} );
+
+	describe( "`enyof( [ ], true, [ ] )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			assert.equal( enyof( [ ], true, [ ] ), false );
+
+		} );
+	} );
+
+	describe( "`enyof( Array, 'Array' )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			assert.equal( enyof( Array, "Array" ), false );
+
+		} );
+	} );
+
+	describe( "`enyof( function hello( ){ return 'hello' }, function hello( ){ return 'hi' } )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			assert.equal( enyof( function hello( ){ return "hello" }, function hello( ){ return "hi" } ), false );
+
+		} );
+	} );
+
 } );
 
 //: @end-server

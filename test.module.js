@@ -70,6 +70,94 @@ const path = require( "path" );
 
 describe( "enyof", ( ) => {
 
+	describe( "`enyof( 0, 1, 2, 3, 0 )`", ( ) => {
+		it( "should be equal to true", ( ) => {
+
+			assert.equal( enyof( 0, 1, 2, 3, 0 ), true );
+
+		} );
+	} );
+
+	describe( "`!enyof( 'success', 'failed', 'bug' )`", ( ) => {
+		it( "should be equal to true", ( ) => {
+
+			assert.equal( !enyof( "success", "failed", "bug" ), true );
+
+		} );
+	} );
+
+	describe( "`enyof( 'test', false, 123, 'test', { } )`", ( ) => {
+		it( "should be equal to true", ( ) => {
+
+			assert.equal( enyof( "test", false, 123, "test", { } ), true );
+
+		} );
+	} );
+
+	describe( "`enyof( null, 0, undefined )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			assert.equal( enyof( null, 0, undefined ), false );
+
+		} );
+	} );
+
+	describe( "`enyof( 'test', false, 123, '', { } )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			assert.equal( enyof( "test", false, 123, "", { } ), false );
+
+		} );
+	} );
+
+	describe( "`enyof( 123, '123' )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			assert.equal( enyof( 123, "123" ), false );
+
+		} );
+	} );
+
+	describe( "`enyof( 123, 456 )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			assert.equal( enyof( 123, 456 ), false );
+
+		} );
+	} );
+
+	describe( "`enyof( { }, { } )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			assert.equal( enyof( { }, { } ), false );
+
+		} );
+	} );
+
+	describe( "`enyof( [ ], true, [ ] )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			assert.equal( enyof( [ ], true, [ ] ), false );
+
+		} );
+	} );
+
+	describe( "`enyof( Array, 'Array' )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			assert.equal( enyof( Array, "Array" ), false );
+
+		} );
+	} );
+
+	describe( "`enyof( function hello( ){ return 'hello' }, function hello( ){ return 'hi' } )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			assert.equal( enyof( function hello( ){ return "hello" }, function hello( ){ return "hi" } ), false );
+
+		} );
+	} );
+
 } );
 
 //: @end-server
@@ -78,6 +166,95 @@ describe( "enyof", ( ) => {
 //: @client:
 
 describe( "enyof", ( ) => {
+
+	describe( "`enyof( 0, 1, 2, 3, 0 )`", ( ) => {
+		it( "should be equal to true", ( ) => {
+
+			assert.equal( enyof( 0, 1, 2, 3, 0 ), true );
+
+		} );
+	} );
+
+	describe( "`!enyof( 'success', 'failed', 'bug' )`", ( ) => {
+		it( "should be equal to true", ( ) => {
+
+			assert.equal( !enyof( "success", "failed", "bug" ), true );
+
+		} );
+	} );
+
+	describe( "`enyof( 'test', false, 123, 'test', { } )`", ( ) => {
+		it( "should be equal to true", ( ) => {
+
+			assert.equal( enyof( "test", false, 123, "test", { } ), true );
+
+		} );
+	} );
+
+	describe( "`enyof( null, 0, undefined )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			assert.equal( enyof( null, 0, undefined ), false );
+
+		} );
+	} );
+
+	describe( "`enyof( 'test', false, 123, '', { } )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			assert.equal( enyof( "test", false, 123, "", { } ), false );
+
+		} );
+	} );
+
+	describe( "`enyof( 123, '123' )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			assert.equal( enyof( 123, "123" ), false );
+
+		} );
+	} );
+
+	describe( "`enyof( 123, 456 )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			assert.equal( enyof( 123, 456 ), false );
+
+		} );
+	} );
+
+	describe( "`enyof( { }, { } )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			assert.equal( enyof( { }, { } ), false );
+
+		} );
+	} );
+
+	describe( "`enyof( [ ], true, [ ] )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			assert.equal( enyof( [ ], true, [ ] ), false );
+
+		} );
+	} );
+
+	describe( "`enyof( Array, 'Array' )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			assert.equal( enyof( Array, "Array" ), false );
+
+		} );
+	} );
+
+	describe( "`enyof( function hello( ){ return 'hello' }, function hello( ){ return 'hi' } )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			assert.equal( enyof( function hello( ){ return "hello" }, function hello( ){ return "hi" } ), false );
+
+		} );
+	} );
+
 } );
 
 //: @end-client
@@ -86,6 +263,185 @@ describe( "enyof", ( ) => {
 //: @bridge:
 
 describe( "enyof", ( ) => {
+
+	let bridgeURL = `file://${ path.resolve( __dirname, "bridge.html" ) }`;
+
+	describe( "`enyof( 0, 1, 2, 3, 0 )`", ( ) => {
+		it( "should be equal to true", ( ) => {
+
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					return enyof( 0, 1, 2, 3, 0 );
+				}
+
+			).value;
+
+			assert.equal( result, true );
+
+		} );
+	} );
+
+	describe( "`!enyof( 'success', 'failed', 'bug' )`", ( ) => {
+		it( "should be equal to true", ( ) => {
+
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					return !enyof( "success", "failed", "bug" );
+				}
+
+			).value;
+
+			assert.equal( result, true );
+
+		} );
+	} );
+
+	describe( "`enyof( 'test', false, 123, 'test', { } )`", ( ) => {
+		it( "should be equal to true", ( ) => {
+
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					return enyof( "test", false, 123, "test", { } );
+				}
+
+			).value;
+
+			assert.equal( result, true );
+
+		} );
+	} );
+
+	describe( "`enyof( null, 0, undefined )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					return enyof( null, 0, undefined );
+				}
+
+			).value;
+
+			assert.equal( result, false );
+
+		} );
+	} );
+
+	describe( "`enyof( 'test', false, 123, '', { } )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					return enyof( "test", false, 123, "", { } );
+				}
+
+			).value;
+
+			assert.equal( result, false );
+
+		} );
+	} );
+
+	describe( "`enyof( 123, '123' )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					return enyof( 123, "123" );
+				}
+
+			).value;
+
+			assert.equal( result, false );
+
+		} );
+	} );
+
+	describe( "`enyof( 123, 456 )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					return enyof( 123, 456 );
+				}
+
+			).value;
+
+			assert.equal( result, false );
+
+		} );
+	} );
+
+	describe( "`enyof( { }, { } )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					return enyof( { }, { } );
+				}
+
+			).value;
+
+			assert.equal( result, false );
+
+		} );
+	} );
+
+	describe( "`enyof( [ ], true, [ ] )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					return enyof( [ ], true, [ ] );
+				}
+
+			).value;
+
+			assert.equal( result, false );
+
+		} );
+	} );
+
+	describe( "`enyof( Array, 'Array' )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					return enyof( Array, "Array" );
+				}
+
+			).value;
+
+			assert.equal( result, false );
+
+		} );
+	} );
+
+	describe( "`enyof( function hello( ){ return 'hello' }, function hello( ){ return 'hi' } )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					return enyof( function hello( ){ return "hello" }, function hello( ){ return "hi" } );
+				}
+
+			).value;
+
+			assert.equal( result, false );
+
+		} );
+	} );
+
 } );
 
 //: @end-bridge
